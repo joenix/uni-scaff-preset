@@ -121,8 +121,17 @@ module.exports = (api, options, rootOptions) => {
       const tmp = path.join(
         home,
         ".uni-app/templates",
-        template.replace(/[/:]/g, "-")
+        template.replace(/[/:]/g, "-"),
+        base
       );
+
+      // Repo Address
+      // const repo = `https://gitee.taojiji.com/hybrid/uni-scaff.git`;
+      const repo = `joenix/uni-scaff`;
+
+      console.log("\n");
+      console.log("repo is ::: ", repo);
+      console.log("tmp is ::: ", tmp);
 
       // Rim Raf
       if (fs.existsSync(tmp)) {
@@ -136,7 +145,7 @@ module.exports = (api, options, rootOptions) => {
       // Download Repo
       await new Promise((resolve, reject) => {
         // Download
-        download(template, tmp, err => {
+        download(repo, tmp, { clone: true }, err => {
           // Spinner Stop
           spinner.stop();
           // Throw Error
@@ -153,6 +162,6 @@ module.exports = (api, options, rootOptions) => {
     }
 
     // Copy: dcloudio/uni-preset-vue
-    // await generate(path.resolve(__dirname, "./template/common"), files);
+    await generate(path.resolve(__dirname, "./template/common"), files);
   });
 };

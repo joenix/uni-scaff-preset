@@ -6,7 +6,7 @@ module.exports = [
     choices: [
       {
         name: "Fetch Template",
-        value: "joenix/uni-scaff"
+        value: "default"
       }
     ],
     default: "None"
