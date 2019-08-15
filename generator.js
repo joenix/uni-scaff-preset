@@ -145,7 +145,7 @@ module.exports = (api, options, rootOptions) => {
       // Download Repo
       await new Promise((resolve, reject) => {
         // Download
-        download(repo, tmp, { clone: true }, err => {
+        download(repo, tmp, err => {
           // Spinner Stop
           spinner.stop();
           // Throw Error
